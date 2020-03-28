@@ -18,4 +18,7 @@ import java.util.List;
 public interface CustomerInfoService extends IService<CustomerInfo> {
     public List<CustomerInfoParameter> searchCustomerByConditions(CustomerInfoParameter customerInfoParameter);
     public int insertCustomer(CustomerInfo customerInfo);
+    public CustomerInfo getCustomerById(CustomerInfo customerInfo);
+    public int updateCustomer(CustomerInfo customerInfo);
+    public int deleteOneCustomer(CustomerInfo customerInfo);
 }

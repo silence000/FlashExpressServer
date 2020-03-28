@@ -70,4 +70,19 @@ public class CustomerInfoServiceImpl extends ServiceImpl<CustomerInfoMapper, Cus
         customerInfo.setSeries(UUID.randomUUID().toString());
         return customerInfoMapper.insert(customerInfo);
     }
+
+    @Override
+    public CustomerInfo getCustomerById(CustomerInfo customerInfo) {
+        return customerInfoMapper.selectById(customerInfo.getId());
+    }
+
+    @Override
+    public int updateCustomer(CustomerInfo customerInfo) {
+        return customerInfoMapper.updateById(customerInfo);
+    }
+
+    @Override
+    public int deleteOneCustomer(CustomerInfo customerInfo) {
+        return customerInfoMapper.deleteById(customerInfo.getId());
+    }
 }

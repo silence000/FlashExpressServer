@@ -21,10 +21,8 @@ public class DBTest {
 
     @Test
     public void test1() {
-        CustomerInfoParameter customerInfo = new CustomerInfoParameter();
-        customerInfo.setSeries("110");
-        customerInfo.setCurrent(1);
-        customerInfo.setSize(5);
-        System.out.println(customerInfoService.searchCustomerByConditions(customerInfo));
+        CustomerInfo customerInfo = new CustomerInfo();
+        customerInfo.setId((long) 24);
+        System.out.println(customerInfoService.getCustomerById(customerInfo));
     }
 }

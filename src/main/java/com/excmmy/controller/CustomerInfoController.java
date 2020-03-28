@@ -43,10 +43,54 @@ public class CustomerInfoController {
         }
         return responseJsonBody;
     }
+
     @RequestMapping(value = "/customerInfoService/insertCustomer", method = RequestMethod.POST)
     public ResponseJsonBody insertCustomer(@RequestBody CustomerInfo customerInfo){
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         int flag = customerInfoService.insertCustomer(customerInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
+    }
+
+    @RequestMapping(value = "/customerInfoService/getCustomer", method = RequestMethod.POST)
+    public ResponseJsonBody getCustomerById(@RequestBody CustomerInfo customerInfo){
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        CustomerInfo customerInfoResult = customerInfoService.getCustomerById(customerInfo);
+        if (customerInfoResult != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(customerInfoResult);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
+    }
+
+    @RequestMapping(value = "/customerInfoService/updateCustomer", method = RequestMethod.POST)
+    public ResponseJsonBody updateCustomer(@RequestBody CustomerInfo customerInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        int flag = customerInfoService.updateCustomer(customerInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
+    }
+
+    @RequestMapping(value = "/customerInfoService/deleteOneCustomer", method = RequestMethod.POST)
+    public ResponseJsonBody deleteOneCustomer(@RequestBody CustomerInfo customerInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        int flag = customerInfoService.deleteOneCustomer(customerInfo);
         if (flag == 1) {
             responseJsonBody.setCode(1);
             responseJsonBody.setMsg("Success");
