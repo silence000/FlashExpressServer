@@ -42,5 +42,125 @@ public class CenterInfo implements Serializable {
 
     private Integer alertNum;
 
+    private Integer returnNum;
 
+    private Integer diliveryNum;
+
+    private Integer usableNum;
+
+    public CenterInfo() {
+    }
+
+    public CenterInfo(Long id, Date gmtCreate, Date gmtModified, Integer isDelete, Long productId, Integer repertoryNum, Integer alertNum, Integer returnNum, Integer diliveryNum, Integer usableNum) {
+        this.id = id;
+        this.gmtCreate = gmtCreate;
+        this.gmtModified = gmtModified;
+        this.isDelete = isDelete;
+        this.productId = productId;
+        this.repertoryNum = repertoryNum;
+        this.alertNum = alertNum;
+        this.returnNum = returnNum;
+        this.diliveryNum = diliveryNum;
+        this.usableNum = usableNum;
+    }
+
+    @Override
+    public String toString() {
+        return "CenterInfo{" +
+                "id=" + id +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", isDelete=" + isDelete +
+                ", productId=" + productId +
+                ", repertoryNum=" + repertoryNum +
+                ", alertNum=" + alertNum +
+                ", returnNum=" + returnNum +
+                ", diliveryNum=" + diliveryNum +
+                ", usableNum=" + usableNum +
+                '}';
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public Integer getRepertoryNum() {
+        return repertoryNum;
+    }
+
+    public void setRepertoryNum(Integer repertoryNum) {
+        this.repertoryNum = repertoryNum;
+    }
+
+    public Integer getAlertNum() {
+        return alertNum;
+    }
+
+    public void setAlertNum(Integer alertNum) {
+        this.alertNum = alertNum;
+    }
+
+    public Integer getReturnNum() {
+        return returnNum;
+    }
+
+    public void setReturnNum(Integer returnNum) {
+        this.returnNum = returnNum;
+    }
+
+    public Integer getDiliveryNum() {
+        return diliveryNum;
+    }
+
+    public void setDiliveryNum(Integer diliveryNum) {
+        this.diliveryNum = diliveryNum;
+    }
+
+    public Integer getUsableNum() {
+        return usableNum;
+    }
+
+    public void setUsableNum(Integer usableNum) {
+        this.usableNum = usableNum;
+    }
 }

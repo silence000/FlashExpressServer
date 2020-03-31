@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -28,8 +30,7 @@ public class UserInfoController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public UserInfo login(@RequestBody UserInfo userInfo){
-        UserInfo userInfoVerify = userInfoService.loginVerify(userInfo);
-        return userInfoVerify;
+        return userInfoService.loginVerify(userInfo);
     }
 
 }

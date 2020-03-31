@@ -1,12 +1,9 @@
 package com.excmmy.test;
 
 import com.excmmy.RunBoot;
-import com.excmmy.bean.CustomerInfo;
-import com.excmmy.bean.UserInfo;
-import com.excmmy.entity.CustomerInfoParameter;
-import com.excmmy.mapper.CustomerInfoMapper;
-import com.excmmy.service.CustomerInfoService;
-import com.excmmy.service.UserInfoService;
+import com.excmmy.bean.ProductInfo;
+import com.excmmy.service.ProductInfoService;
+import com.excmmy.service.impl.ProductInfoServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes= {RunBoot.class}) // 指定RunUserBoot.class启动类
 public class DBTest {
     @Autowired
-    private CustomerInfoService customerInfoService;
+    private ProductInfoService productInfoService;
 
     @Test
     public void test1() {
-        CustomerInfo customerInfo = new CustomerInfo();
-        customerInfo.setId((long) 24);
-        System.out.println(customerInfoService.getCustomerById(customerInfo));
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setName("123123");
+        System.out.println(productInfoService.getProductInfoByName(productInfo));
     }
 }

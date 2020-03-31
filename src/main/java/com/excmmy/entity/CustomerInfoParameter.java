@@ -2,8 +2,6 @@ package com.excmmy.entity;
 
 import com.excmmy.bean.CustomerInfo;
 
-import java.util.Date;
-
 public class CustomerInfoParameter extends CustomerInfo {
     // 分页查询时使用
     private int current; // 当前页

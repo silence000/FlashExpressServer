@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-03-25
  */
 public interface ProductInfoService extends IService<ProductInfo> {
-
+    public ProductInfo getProductInfoByName(ProductInfo productInfo);
 }
