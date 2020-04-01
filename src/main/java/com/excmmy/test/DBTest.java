@@ -2,6 +2,7 @@ package com.excmmy.test;
 
 import com.excmmy.RunBoot;
 import com.excmmy.bean.ProductInfo;
+import com.excmmy.service.DictionaryService;
 import com.excmmy.service.ProductInfoService;
 import com.excmmy.service.impl.ProductInfoServiceImpl;
 import org.junit.Test;
@@ -14,12 +15,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes= {RunBoot.class}) // 指定RunUserBoot.class启动类
 public class DBTest {
     @Autowired
-    private ProductInfoService productInfoService;
+    private DictionaryService dictionaryService;
 
     @Test
     public void test1() {
-        ProductInfo productInfo = new ProductInfo();
-        productInfo.setName("123123");
-        System.out.println(productInfoService.getProductInfoByName(productInfo));
+        System.out.println(dictionaryService.getOrderType());
     }
 }

@@ -28,7 +28,11 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         orderInfoInsert.setCustomerId(orderInfo.getCustomerId());
         orderInfoInsert.setSeries(orderInfoMapper.getNewestOrderInfo().getSeries() + 1);
         orderInfoMapper.insert(orderInfoInsert);
-//        System.out.println(orderInfoInsert.getId());
         return orderInfoInsert;
+    }
+
+    @Override
+    public int updateOrderById(OrderInfo orderInfo) {
+        return orderInfoMapper.updateById(orderInfo);
     }
 }

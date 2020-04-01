@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface OrderInfoService extends IService<OrderInfo> {
     public OrderInfo initOrder(OrderInfo orderInfo);
+    public int updateOrderById(OrderInfo orderInfo);
 }

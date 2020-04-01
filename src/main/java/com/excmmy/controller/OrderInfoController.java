@@ -39,4 +39,18 @@ public class OrderInfoController {
         }
         return responseJsonBody;
     }
+
+    @RequestMapping(value = "/customerInfoService/updateOrderById", method = RequestMethod.POST)
+    public ResponseJsonBody updateOrderById(@RequestBody OrderInfo orderInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        int flag = orderInfoService.updateOrderById(orderInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
+    }
 }

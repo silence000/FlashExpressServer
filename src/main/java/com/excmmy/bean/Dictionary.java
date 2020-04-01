@@ -36,11 +36,95 @@ public class Dictionary implements Serializable {
 
     private Integer isDelete;
 
-    private Integer type;
+    private Integer exType;
 
-    private Integer key;
+    private Integer exKey;
 
-    private String value;
+    private String exValue;
 
+    public Dictionary() {
+    }
 
+    public Dictionary(Long id, Date gmtCreate, Date gmtModified, Integer isDelete, Integer exType, Integer exKey, String exValue) {
+        this.id = id;
+        this.gmtCreate = gmtCreate;
+        this.gmtModified = gmtModified;
+        this.isDelete = isDelete;
+        this.exType = exType;
+        this.exKey = exKey;
+        this.exValue = exValue;
+    }
+
+    @Override
+    public String toString() {
+        return "Dictionary{" +
+                "id=" + id +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", isDelete=" + isDelete +
+                ", exType=" + exType +
+                ", exKey=" + exKey +
+                ", exValue='" + exValue + '\'' +
+                '}';
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public Integer getExType() {
+        return exType;
+    }
+
+    public void setExType(Integer exType) {
+        this.exType = exType;
+    }
+
+    public Integer getExKey() {
+        return exKey;
+    }
+
+    public void setExKey(Integer exKey) {
+        this.exKey = exKey;
+    }
+
+    public String getExValue() {
+        return exValue;
+    }
+
+    public void setExValue(String exValue) {
+        this.exValue = exValue;
+    }
 }
