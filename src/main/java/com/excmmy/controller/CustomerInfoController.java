@@ -90,7 +90,9 @@ public class CustomerInfoController {
     @RequestMapping(value = "/customerInfoService/deleteOneCustomer", method = RequestMethod.POST)
     public ResponseJsonBody deleteOneCustomer(@RequestBody CustomerInfo customerInfo) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        int flag = customerInfoService.deleteOneCustomer(customerInfo);
+//        int flag = customerInfoService.deleteOneCustomer(customerInfo);
+        // todo 测试用假删除
+        int flag = 1;
         if (flag == 1) {
             responseJsonBody.setCode(1);
             responseJsonBody.setMsg("Success");

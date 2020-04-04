@@ -25,7 +25,7 @@ public class UserInfoController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello(){
-        return "Hello to FlashExpress";
+        return "Welcome to FlashExpress";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

@@ -4,14 +4,16 @@ public class ResponseJsonBody {
     private int code;
     private String msg;
     private Object data;
+    private Object extra;
 
     public ResponseJsonBody() {
     }
 
-    public ResponseJsonBody(int code, String msg, Object data) {
+    public ResponseJsonBody(int code, String msg, Object data, Object extra) {
         this.code = code;
         this.msg = msg;
         this.data = data;
+        this.extra = extra;
     }
 
     @Override
@@ -20,6 +22,7 @@ public class ResponseJsonBody {
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
+                ", extra=" + extra +
                 '}';
     }
 
@@ -45,5 +48,13 @@ public class ResponseJsonBody {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public Object getExtra() {
+        return extra;
+    }
+
+    public void setExtra(Object extra) {
+        this.extra = extra;
     }
 }
