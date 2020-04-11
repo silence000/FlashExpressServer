@@ -3,6 +3,7 @@ package com.excmmy.service;
 import com.excmmy.bean.CenterInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.excmmy.entity.Repository;
+import com.excmmy.util.ResponseJsonBody;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ import java.util.List;
  * @since 2020-03-25
  */
 public interface CenterInfoService extends IService<CenterInfo> {
-    public List<Repository> getCenterInfoByKeyword(Repository repository);
+    public ResponseJsonBody getCenterInfoByKeyword(Repository repository);
 }

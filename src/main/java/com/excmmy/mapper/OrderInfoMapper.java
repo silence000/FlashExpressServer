@@ -94,7 +94,6 @@ public interface OrderInfoMapper extends BaseMapper<OrderInfo> {
             if (!blank) {
                 sql.delete(sql.length() - 4, sql.length());
             }
-            System.out.println("sql: " + sql);
             return sql.toString();
         }
 
@@ -135,7 +134,6 @@ public interface OrderInfoMapper extends BaseMapper<OrderInfo> {
             if (!blank) {
                 sql.delete(sql.length() - 4, sql.length());
             }
-            System.out.println("sql: " + sql);
             return sql.toString();
         }
     }

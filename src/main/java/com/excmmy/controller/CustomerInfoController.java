@@ -1,11 +1,8 @@
 package com.excmmy.controller;
 
-
 import com.excmmy.bean.CustomerInfo;
-import com.excmmy.entity.CustomerInfoParameter;
-import com.excmmy.entity.ResponseJsonBody;
+import com.excmmy.util.ResponseJsonBody;
 import com.excmmy.service.CustomerInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
-import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -30,76 +26,27 @@ public class CustomerInfoController {
     private CustomerInfoService customerInfoService;
 
     @RequestMapping(value = "/customerInfoService/getCustomerInfoList", method = RequestMethod.POST)
-    public ResponseJsonBody getCustomerInfoList(@RequestBody CustomerInfoParameter customerInfoParameter){
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        List<CustomerInfoParameter> customerInfoResult = customerInfoService.searchCustomerByConditions(customerInfoParameter);
-        if (customerInfoResult != null) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-            responseJsonBody.setData(customerInfoResult);
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Null");
-        }
-        return responseJsonBody;
+    public ResponseJsonBody getCustomerInfoList(@RequestBody Map<String, Object> requestData){
+        return customerInfoService.searchCustomerByConditions(requestData);
     }
 
     @RequestMapping(value = "/customerInfoService/insertCustomer", method = RequestMethod.POST)
     public ResponseJsonBody insertCustomer(@RequestBody CustomerInfo customerInfo){
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        int flag = customerInfoService.insertCustomer(customerInfo);
-        if (flag == 1) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Fail");
-        }
-        return responseJsonBody;
+        return customerInfoService.insertCustomer(customerInfo);
     }
 
     @RequestMapping(value = "/customerInfoService/getCustomer", method = RequestMethod.POST)
     public ResponseJsonBody getCustomerById(@RequestBody CustomerInfo customerInfo){
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        CustomerInfo customerInfoResult = customerInfoService.getCustomerById(customerInfo);
-        if (customerInfoResult != null) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-            responseJsonBody.setData(customerInfoResult);
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Fail");
-        }
-        return responseJsonBody;
+        return customerInfoService.getCustomerById(customerInfo);
     }
 
     @RequestMapping(value = "/customerInfoService/updateCustomer", method = RequestMethod.POST)
     public ResponseJsonBody updateCustomer(@RequestBody CustomerInfo customerInfo) {
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        int flag = customerInfoService.updateCustomer(customerInfo);
-        if (flag == 1) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Fail");
-        }
-        return responseJsonBody;
+        return customerInfoService.updateCustomer(customerInfo);
     }
 
     @RequestMapping(value = "/customerInfoService/deleteOneCustomer", method = RequestMethod.POST)
     public ResponseJsonBody deleteOneCustomer(@RequestBody CustomerInfo customerInfo) {
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-//        int flag = customerInfoService.deleteOneCustomer(customerInfo);
-        // todo 测试用假删除
-        int flag = 1;
-        if (flag == 1) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Fail");
-        }
-        return responseJsonBody;
+        return customerInfoService.deleteOneCustomer(customerInfo);
     }
 }

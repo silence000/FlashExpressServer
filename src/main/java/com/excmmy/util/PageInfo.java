@@ -1,6 +1,8 @@
-package com.excmmy.entity;
+package com.excmmy.util;
 
-public class PageInfo {
+import java.io.Serializable;
+
+public class PageInfo implements Serializable {
     // 分页查询时使用
     private int current; // 当前页
     private int size; // 每页存放的数据条数

@@ -2,39 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39c490c5-3bfc-4dd5-9c7b-0dc12251e910" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/OrderInfoFull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/OrderList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/PageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/aspect/WatchBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/Logs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/util/JWTUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/util/PasswordUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/RunBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/RunBoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/bean/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/bean/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/CenterInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/CenterInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/CustomerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/CustomerInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/DictionaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/OrderInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/ProductInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/ProductInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/controller/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/ResponseJsonBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/ResponseJsonBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/CustomerInfoParameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/PageInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/util/PageInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/entity/ResponseJsonBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/util/ResponseJsonBody.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/OrderInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/OrderInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/AssignInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/BackInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/CenterInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/ChecklistInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/CustomerInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/DeliveryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/DictionaryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/ImpotInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/InoutInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/LibInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/MissionInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/OrderInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/ProductInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/ShortInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/StationInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/TransferInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/mapper/xml/UserInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/CenterInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/CenterInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/CustomerInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/CustomerInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/DictionaryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/OrderInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/OrderInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/ProductInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/ProductInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/CenterInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/CenterInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/CustomerInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/CustomerInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/DictionaryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/DictionaryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/OrderInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/OrderInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/ProductInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/ProductInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/service/impl/UserInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/excmmy/test/DBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/excmmy/test/DBTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/RunBoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/RunBoot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/bean/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/bean/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/CenterInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/CenterInfoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/CustomerInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/CustomerInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/DictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/DictionaryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/OrderInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/OrderInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/ProductInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/ProductInfoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/controller/UserInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/entity/ResponseJsonBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/entity/ResponseJsonBody.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/mapper/OrderInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/mapper/OrderInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/entity/CustomerInfoParameter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/entity/PageInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/entity/ResponseJsonBody.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/mapper/OrderInfoMapper$DynamicDataDaoProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/mapper/OrderInfoMapper$DynamicDataDaoProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/CenterInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/CenterInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/CustomerInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/CustomerInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/DictionaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/DictionaryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/OrderInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/OrderInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/ProductInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/ProductInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/UserInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/CenterInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/CenterInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/CustomerInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/CustomerInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/DictionaryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/DictionaryServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/OrderInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/OrderInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/ProductInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/ProductInfoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/service/impl/UserInfoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/excmmy/test/DBTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/excmmy/test/DBTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FlashExpressServer" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,7 +122,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BookShop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/excmmy/aspect" />
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -80,6 +131,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\spc11\OneDrive\Projects\flashexpressserver\src\main\java\com\excmmy\aspect" />
+      <recent name="C:\Users\spc11\OneDrive\Projects\flashexpressserver\src\main\java\com\excmmy\util" />
       <recent name="C:\Users\spc11\OneDrive\Projects\flashexpressserver\src\main\java\com\excmmy\test" />
       <recent name="C:\Users\spc11\OneDrive\Projects\flashexpressserver\src\main\java\com\excmmy\interceptor" />
       <recent name="C:\Users\spc11\OneDrive\Projects\flashexpressserver\src\main\java\com\excmmy" />
@@ -178,7 +231,14 @@
       <workItem from="1585120083360" duration="64599000" />
       <workItem from="1585407117707" duration="36808000" />
       <workItem from="1585649548685" duration="14772000" />
-      <workItem from="1585737353185" duration="70390000" />
+      <workItem from="1585737353185" duration="70845000" />
+      <workItem from="1586169655469" duration="4021000" />
+      <workItem from="1586185755999" duration="40000" />
+      <workItem from="1586326362157" duration="10510000" />
+      <workItem from="1586517024228" duration="1480000" />
+      <workItem from="1586524187245" duration="2049000" />
+      <workItem from="1586587530797" duration="22521000" />
+      <workItem from="1586620325799" duration="3144000" />
     </task>
     <servers />
   </component>

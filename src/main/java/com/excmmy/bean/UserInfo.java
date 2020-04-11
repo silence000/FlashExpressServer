@@ -42,6 +42,8 @@ public class UserInfo implements Serializable {
 
     private String userpass;
 
+    private String salt;
+
     private String nickname;
 
     private String phone;
@@ -55,7 +57,7 @@ public class UserInfo implements Serializable {
     public UserInfo() {
     }
 
-    public UserInfo(Long id, Date gmtCreate, Date gmtModified, Integer isDelete, Long series, String username, String userpass, String nickname, String phone, String address, String email, Long role) {
+    public UserInfo(Long id, Date gmtCreate, Date gmtModified, Integer isDelete, Long series, String username, String userpass, String salt, String nickname, String phone, String address, String email, Long role) {
         this.id = id;
         this.gmtCreate = gmtCreate;
         this.gmtModified = gmtModified;
@@ -63,6 +65,7 @@ public class UserInfo implements Serializable {
         this.series = series;
         this.username = username;
         this.userpass = userpass;
+        this.salt = salt;
         this.nickname = nickname;
         this.phone = phone;
         this.address = address;
@@ -80,6 +83,7 @@ public class UserInfo implements Serializable {
                 ", series=" + series +
                 ", username='" + username + '\'' +
                 ", userpass='" + userpass + '\'' +
+                ", salt='" + salt + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
@@ -186,5 +190,13 @@ public class UserInfo implements Serializable {
 
     public void setRole(Long role) {
         this.role = role;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

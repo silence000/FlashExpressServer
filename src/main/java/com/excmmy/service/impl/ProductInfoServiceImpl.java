@@ -5,6 +5,7 @@ import com.excmmy.bean.ProductInfo;
 import com.excmmy.mapper.ProductInfoMapper;
 import com.excmmy.service.ProductInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.excmmy.util.ResponseJsonBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +27,19 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoMapper, Produ
     private ProductInfoMapper productInfoMapper;
 
     @Override
-    public ProductInfo getProductInfoByName(ProductInfo productInfo) {
+    public ResponseJsonBody getProductInfoByName(ProductInfo productInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         QueryWrapper<ProductInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", productInfo.getName());
-        return productInfoMapper.selectOne(queryWrapper);
+        ProductInfo productInfoResult = productInfoMapper.selectOne(queryWrapper);
+        if (productInfoResult != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(productInfoResult);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Null");
+        }
+        return responseJsonBody;
     }
 }

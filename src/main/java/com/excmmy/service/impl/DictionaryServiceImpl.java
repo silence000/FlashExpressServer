@@ -5,6 +5,8 @@ import com.excmmy.bean.Dictionary;
 import com.excmmy.mapper.DictionaryMapper;
 import com.excmmy.service.DictionaryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.excmmy.util.ResponseJsonBody;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,16 +28,38 @@ public class DictionaryServiceImpl extends ServiceImpl<DictionaryMapper, Diction
     private DictionaryMapper dictionaryMapper;
 
     @Override
-    public List<Dictionary> getOrderType() {
+    @Cacheable(value = "OrderType")
+    public ResponseJsonBody getOrderType() {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         Map<String,Object> columnMap = new HashMap<>();
         columnMap.put("ex_type", "30");
-        return dictionaryMapper.selectByMap(columnMap);
+        List<Dictionary> dictionaryList = dictionaryMapper.selectByMap(columnMap);
+        if (dictionaryList != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(dictionaryList);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override
-    public List<Dictionary> getOrderStatus() {
+    @Cacheable(value = "OrderStatus")
+    public ResponseJsonBody getOrderStatus() {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         Map<String,Object> columnMap = new HashMap<>();
         columnMap.put("ex_type", "10");
-        return dictionaryMapper.selectByMap(columnMap);
+        List<Dictionary> dictionaryList =  dictionaryMapper.selectByMap(columnMap);
+        if (dictionaryList != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(dictionaryList);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 }

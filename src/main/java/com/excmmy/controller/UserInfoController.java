@@ -3,6 +3,7 @@ package com.excmmy.controller;
 
 import com.excmmy.bean.UserInfo;
 import com.excmmy.service.UserInfoService;
+import com.excmmy.util.ResponseJsonBody;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +30,12 @@ public class UserInfoController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public UserInfo login(@RequestBody UserInfo userInfo){
+    public ResponseJsonBody login(@RequestBody UserInfo userInfo){
         return userInfoService.loginVerify(userInfo);
     }
 
+    @RequestMapping(value = "/insertUser", method = RequestMethod.POST)
+    public ResponseJsonBody insertUser(@RequestBody UserInfo userInfo){
+        return userInfoService.insertUser(userInfo);
+    }
 }

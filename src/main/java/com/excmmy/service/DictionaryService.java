@@ -2,6 +2,7 @@ package com.excmmy.service;
 
 import com.excmmy.bean.Dictionary;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.excmmy.util.ResponseJsonBody;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @since 2020-03-25
  */
 public interface DictionaryService extends IService<Dictionary> {
-    public List<Dictionary> getOrderType();
+    public ResponseJsonBody getOrderType();
 
-    public List<Dictionary> getOrderStatus();
+    public ResponseJsonBody getOrderStatus();
 }

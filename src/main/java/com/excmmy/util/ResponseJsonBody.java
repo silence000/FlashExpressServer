@@ -1,6 +1,8 @@
-package com.excmmy.entity;
+package com.excmmy.util;
 
-public class ResponseJsonBody {
+import java.io.Serializable;
+
+public class ResponseJsonBody implements Serializable {
     private int code;
     private String msg;
     private Object data;

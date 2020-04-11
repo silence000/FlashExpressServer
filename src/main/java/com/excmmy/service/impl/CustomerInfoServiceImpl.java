@@ -1,20 +1,20 @@
 package com.excmmy.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.CustomerInfo;
-import com.excmmy.entity.CustomerInfoParameter;
+import com.excmmy.entity.OrderList;
 import com.excmmy.mapper.CustomerInfoMapper;
 import com.excmmy.service.CustomerInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import net.minidev.json.JSONUtil;
-import org.apache.ibatis.annotations.Param;
+import com.excmmy.util.PageInfo;
+import com.excmmy.util.ResponseJsonBody;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
-import javax.xml.crypto.Data;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -29,60 +29,105 @@ import java.util.*;
 public class CustomerInfoServiceImpl extends ServiceImpl<CustomerInfoMapper, CustomerInfo> implements CustomerInfoService {
     @Resource
     private CustomerInfoMapper customerInfoMapper;
+
     @Override
-    public List<CustomerInfoParameter> searchCustomerByConditions(CustomerInfoParameter customerInfoParameter) {
-        Page<CustomerInfo> page = new Page<>(customerInfoParameter.getCurrent(), customerInfoParameter.getSize());
+    @Cacheable(value = "CustomerList")
+    public ResponseJsonBody searchCustomerByConditions(@RequestBody Map<String, Object> requestData) {
+        CustomerInfo customerInfo = JSON.parseObject(JSON.toJSONString(requestData.get("conditions")), CustomerInfo.class);
+        PageInfo pageInfo = JSON.parseObject(JSON.toJSONString(requestData.get("pageInfo")), PageInfo.class);
+        Page<CustomerInfo> page = new Page<>(pageInfo.getCurrent(), pageInfo.getSize());
         QueryWrapper<CustomerInfo> queryWrapper = new QueryWrapper<>();
-        if (customerInfoParameter.getPid() != null) {
-            queryWrapper.like("pid", customerInfoParameter.getPid());
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 添加判断条件
+        if (customerInfo.getPid() != null) {
+            queryWrapper.like("pid", customerInfo.getPid());
         }
-        if (customerInfoParameter.getName() != null) {
-            queryWrapper.like("name", customerInfoParameter.getName());
+        if (customerInfo.getName() != null) {
+            queryWrapper.like("name", customerInfo.getName());
         }
-        if (customerInfoParameter.getMobile() != null) {
-            queryWrapper.like("mobile", customerInfoParameter.getMobile());
+        if (customerInfo.getMobile() != null) {
+            queryWrapper.like("mobile", customerInfo.getMobile());
         }
-        if (customerInfoParameter.getSeries() != null) { // 测试用
-            queryWrapper.like("series", customerInfoParameter.getSeries());
+        if (customerInfo.getSeries() != null) { // 测试用
+            queryWrapper.like("series", customerInfo.getSeries());
         }
         // 执行查询
         customerInfoMapper.selectPage(page, queryWrapper);
         List<CustomerInfo> customerInfos = page.getRecords();
-        if (customerInfos.size() != 0) {
-            ArrayList<CustomerInfoParameter> customerInfoResult = new ArrayList<>();
-            for (CustomerInfo customerInfo : customerInfos) {
-                customerInfoResult.add(new CustomerInfoParameter(customerInfo));
-            }
-            customerInfoResult.get(0).setCurrentPage((int) page.getCurrent()); // 当前页页码
-            customerInfoResult.get(0).setPages((int) page.getPages()); // 总页数
-            customerInfoResult.get(0).setSize((int) page.getSize()); // 当前页面数据条数
-            customerInfoResult.get(0).setTotal((int) page.getTotal()); // 总数据条数
-            customerInfoResult.get(0).setHasNext(page.hasNext()); // 是否有下一页
-            customerInfoResult.get(0).setHasPrevious(page.hasPrevious()); // 是否有上一页
-            return customerInfoResult;
+        PageInfo pageInfoResult = new PageInfo();
+        pageInfoResult.setCurrentPage((int) page.getCurrent());
+        pageInfoResult.setPages((int) page.getPages());
+        pageInfoResult.setPageSize((int) page.getSize());
+        pageInfoResult.setTotal((int) page.getTotal());
+        if (customerInfos != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(customerInfos);
+            responseJsonBody.setExtra(pageInfoResult);
         } else {
-            return null;
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
         }
+        return responseJsonBody;
     }
 
     @Override
-    public int insertCustomer(CustomerInfo customerInfo){
+    public ResponseJsonBody insertCustomer(CustomerInfo customerInfo){
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         customerInfo.setSeries(UUID.randomUUID().toString());
-        return customerInfoMapper.insert(customerInfo);
+        int flag = customerInfoMapper.insert(customerInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override
-    public CustomerInfo getCustomerById(CustomerInfo customerInfo) {
-        return customerInfoMapper.selectById(customerInfo.getId());
+    @Cacheable(value = "CustomerInfo")
+    public ResponseJsonBody getCustomerById(CustomerInfo customerInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        CustomerInfo customerInfoResult = customerInfoMapper.selectById(customerInfo.getId());
+        if (customerInfoResult != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(customerInfoResult);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override
-    public int updateCustomer(CustomerInfo customerInfo) {
-        return customerInfoMapper.updateById(customerInfo);
+    public ResponseJsonBody updateCustomer(CustomerInfo customerInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        int flag = customerInfoMapper.updateById(customerInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override
-    public int deleteOneCustomer(CustomerInfo customerInfo) {
-        return customerInfoMapper.deleteById(customerInfo.getId());
+    public ResponseJsonBody deleteOneCustomer(CustomerInfo customerInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+//        int flag = customerInfoMapper.deleteById(customerInfo.getId());
+        int flag = 1; // 测试用, 假删除
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 }

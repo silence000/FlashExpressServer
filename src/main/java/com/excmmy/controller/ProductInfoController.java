@@ -2,7 +2,7 @@ package com.excmmy.controller;
 
 
 import com.excmmy.bean.ProductInfo;
-import com.excmmy.entity.ResponseJsonBody;
+import com.excmmy.util.ResponseJsonBody;
 import com.excmmy.service.ProductInfoService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,17 +26,7 @@ public class ProductInfoController {
     private ProductInfoService productInfoService;
     @RequestMapping(value = "/customerInfoService/getProductInfoByName", method = RequestMethod.POST)
     public ResponseJsonBody getProductInfoByName(@RequestBody ProductInfo productInfo) {
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        ProductInfo productInfoResult = productInfoService.getProductInfoByName(productInfo);
-        if (productInfoResult != null) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-            responseJsonBody.setData(productInfoResult);
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Null");
-        }
-        return responseJsonBody;
+        return productInfoService.getProductInfoByName(productInfo);
     }
 }
 

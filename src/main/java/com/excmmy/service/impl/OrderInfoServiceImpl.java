@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.OrderInfo;
 import com.excmmy.entity.OrderInfoFull;
 import com.excmmy.entity.OrderList;
-import com.excmmy.entity.PageInfo;
-import com.excmmy.entity.ResponseJsonBody;
+import com.excmmy.util.PageInfo;
+import com.excmmy.util.ResponseJsonBody;
 import com.excmmy.mapper.OrderInfoMapper;
 import com.excmmy.service.OrderInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -30,15 +30,33 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     private OrderInfoMapper orderInfoMapper;
 
     @Override
-    public OrderInfo initOrder() {
+    public ResponseJsonBody initOrder() {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         OrderInfo orderInfoID = new OrderInfo();
         orderInfoID.setSeries(orderInfoMapper.getNewestOrderInfo().getSeries() + 1);
-        return orderInfoID;
+        if (orderInfoID != null) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+            responseJsonBody.setData(orderInfoID);
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override
-    public int insertOrder(OrderInfo orderInfo) {
-        return orderInfoMapper.insert(orderInfo);
+    public ResponseJsonBody insertOrder(OrderInfo orderInfo) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        int flag = orderInfoMapper.insert(orderInfo);
+        if (flag == 1) {
+            responseJsonBody.setCode(1);
+            responseJsonBody.setMsg("Success");
+        } else {
+            responseJsonBody.setCode(0);
+            responseJsonBody.setMsg("Fail");
+        }
+        return responseJsonBody;
     }
 
     @Override

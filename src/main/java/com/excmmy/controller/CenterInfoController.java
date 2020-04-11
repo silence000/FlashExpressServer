@@ -2,7 +2,7 @@ package com.excmmy.controller;
 
 
 import com.excmmy.entity.Repository;
-import com.excmmy.entity.ResponseJsonBody;
+import com.excmmy.util.ResponseJsonBody;
 import com.excmmy.service.CenterInfoService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,17 +28,7 @@ public class CenterInfoController {
 
     @RequestMapping(value = "/customerInfoService/getCenterInfoByKeyword", method = RequestMethod.POST)
     public ResponseJsonBody getCenterInfoByKeyword(@RequestBody Repository repository){
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        List<Repository> repositoryResult = centerInfoService.getCenterInfoByKeyword(repository);
-        if (repositoryResult != null) {
-            responseJsonBody.setCode(1);
-            responseJsonBody.setMsg("Success");
-            responseJsonBody.setData(repositoryResult);
-        } else {
-            responseJsonBody.setCode(0);
-            responseJsonBody.setMsg("Null");
-        }
-        return responseJsonBody;
+        return centerInfoService.getCenterInfoByKeyword(repository);
     }
 }
 

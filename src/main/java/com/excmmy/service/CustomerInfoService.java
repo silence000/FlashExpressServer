@@ -2,10 +2,9 @@ package com.excmmy.service;
 
 import com.excmmy.bean.CustomerInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.excmmy.entity.CustomerInfoParameter;
+import com.excmmy.util.ResponseJsonBody;
 
-import java.text.ParseException;
-import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -16,9 +15,9 @@ import java.util.List;
  * @since 2020-03-25
  */
 public interface CustomerInfoService extends IService<CustomerInfo> {
-    public List<CustomerInfoParameter> searchCustomerByConditions(CustomerInfoParameter customerInfoParameter);
-    public int insertCustomer(CustomerInfo customerInfo);
-    public CustomerInfo getCustomerById(CustomerInfo customerInfo);
-    public int updateCustomer(CustomerInfo customerInfo);
-    public int deleteOneCustomer(CustomerInfo customerInfo);
+    public ResponseJsonBody searchCustomerByConditions(Map<String, Object> requestData);
+    public ResponseJsonBody insertCustomer(CustomerInfo customerInfo);
+    public ResponseJsonBody getCustomerById(CustomerInfo customerInfo);
+    public ResponseJsonBody updateCustomer(CustomerInfo customerInfo);
+    public ResponseJsonBody deleteOneCustomer(CustomerInfo customerInfo);
 }
